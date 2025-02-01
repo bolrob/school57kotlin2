@@ -1,6 +1,7 @@
 package com.example.demo.controller
 
 import com.example.demo.dto.UserDto
+import com.example.demo.service.UserService
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageImpl
 import org.springframework.data.domain.Pageable
@@ -9,7 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-class UsersController {
+class UsersController(
+    val userService: UserService
+) {
 
     @GetMapping("/users")
     fun getUsers(
@@ -18,10 +21,11 @@ class UsersController {
         println("Page: ${pageable.pageNumber}")
         println("Size: ${pageable.pageSize}")
         println("Sort: ${pageable.sort.toString()}")
-        return PageImpl(
-            listOf(
-                UserDto(id = 1, firstName = "Иван", lastName = "Иванов")
-            )
-        )
+        return userService.getUsers(pageable)
+//        return PageImpl(
+//            listOf(
+//                UserDto(id = 1, firstName = "Иван", lastName = "Иванов")
+//            )
+//        )
     }
 }
