@@ -1,0 +1,25 @@
+@startuml
+actor User
+participant "Приложение" as App
+participant "Сервер" as Server
+participant "Ресторан" as Restaurant
+
+User -> App : Открывает приложение
+App -> Server : Загружает доступные рестораны
+Server -> App : Возвращает список ресторанов
+User -> App : Выбирает ресторан
+App -> Server : Загружает меню ресторана
+Server -> App : Возвращает меню
+
+User -> App : Добавляет блюда в корзину
+User -> App : Переходит к оформлению заказа
+User -> App : Вводит адрес доставки
+User -> App : Выбирает способ оплаты
+User -> App : Подтверждает заказ
+
+App -> Server : Обрабатывает заказ
+Server -> Restaurant : Отправляет заказ
+Restaurant -> Server : Подтверждает получение заказа
+Server -> App : Уведомление о статусе заказа
+App -> User : Показывает статус заказа
+@enduml
