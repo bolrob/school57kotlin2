@@ -6,6 +6,11 @@ class MyRepository<T : Any>(
     val connection: Connection,
 ) {
 
+    init {
+        //Тут можно проверить наличие таблицы
+        TODO()
+    }
+
     inline fun <reified T : Any> create(obj: T): T {
         //return T::class.primaryConstructor!!.call(....)
         // Название таблички можно брать с названия класса
