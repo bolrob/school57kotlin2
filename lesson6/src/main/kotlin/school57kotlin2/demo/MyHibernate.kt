@@ -8,6 +8,7 @@ class MyRepository<T : Any>(
 
     inline fun <reified T : Any> create(obj: T): T {
         //return T::class.primaryConstructor!!.call(....)
+        // Название таблички можно брать с названия класса
         TODO()
     }
 
@@ -26,10 +27,10 @@ class MyRepository<T : Any>(
 }
 
 fun main() {
-    val connection: Connection = TODO()
-    val repository = MyRepository<...>(connection)
-
-    val entity = repository.create(...)
-    repository.read(entity.id)
-        ..
+//    val connection: Connection = TODO()
+//    val repository = MyRepository<...>(connection)
+//
+//    val entity = repository.create(...)
+//    repository.read(entity.id)
+//        ..
 }
