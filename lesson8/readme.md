@@ -1,3 +1,5 @@
-На этом уроке смотрим новое
+На этом уроке обсуждаем командные проекты
 
-1) Тестирование. [Пирамида тестирования](https://habr.com/en/articles/672484/), [Junit](https://www.baeldung.com/junit-5-gradle), [Kotest](https://kotest.io/docs/assertions/assertions.html), [Jacoco](http://docs.gradle.org/current/userguide/jacoco_plugin.html)
+Домашнее задание на командный проект на 25:02 время сдачи до 12:00
+1) По сторям и диаграммам внести правки, полученные на этом уроке.
+2) Написать контроллеры, репозитории для бд и клиенты во внешние сервисы(если они есть)
