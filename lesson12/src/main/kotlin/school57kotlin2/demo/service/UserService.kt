@@ -7,7 +7,6 @@ import school57kotlin2.demo.client.BlackListClient
 import school57kotlin2.demo.controller.dto.TransferDto
 import school57kotlin2.demo.controller.dto.UserDto
 import school57kotlin2.demo.controller.dto.toEntity
-import school57kotlin2.demo.entity.toDto
 import school57kotlin2.demo.repository.UserRepository
 
 @Service
@@ -16,18 +15,17 @@ class UserService(
     val blackListClient: BlackListClient,
 ) {
 
-    fun addUser(user: UserDto) : UserDto?{
+    fun addUser(user: UserDto) {
         val blackListReason = blackListClient.searchInBlacklist(
             name = user.name,
             age = user.age
         )
 
         if (blackListReason.contains("Террорист")) {
-            return null
+            return
         }
 
-        val savedUser = userRepository.save(user.toEntity()).toDto()
-        return savedUser
+        userRepository.save(user.toEntity())
     }
 
     fun getUser(name: String) =
@@ -57,3 +55,11 @@ class InsufficientFundsException(name: String) :
 
 @ResponseStatus(HttpStatus.NOT_FOUND)
 class UserNotFoundException(name: String) : RuntimeException("User $name not found in DB")
+
+fun foo(a: Boolean, b: Boolean): Int {
+    if (a || b) {
+        return 1
+    } else {
+        return 2
+    }
+}

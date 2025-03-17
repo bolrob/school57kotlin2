@@ -7,7 +7,7 @@ import jakarta.persistence.Id
 import school57kotlin2.demo.controller.dto.UserDto
 
 @Entity(name = "users")
-class UserEntity (
+data class UserEntity (
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null,
