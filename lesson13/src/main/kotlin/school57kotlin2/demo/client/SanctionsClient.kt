@@ -34,15 +34,14 @@ class SanctionsClient(
         .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
         .build()
 
-    fun searchInBlacklist(name: String, age: Int): List<String> = client
+    fun isSanctions(name: String): Boolean = client
         .get()
         .uri(
             "blacklist",
-            mapOf("name" to name, "age" to age)
+            mapOf("name" to name)
         )
         .retrieve()
-        .bodyToMono(String::class.java)
-        .block()
-        ?.split(",") ?: throw UserNotFundsException(name, age)
+        .bodyToMono(Boolean::class.java)
+        .block() ?: throw UserNotFundsException(name, 0)
 
 }
