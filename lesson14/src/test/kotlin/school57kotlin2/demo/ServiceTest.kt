@@ -5,7 +5,7 @@ import org.springframework.boot.test.context.SpringBootTest
 
 
 @SpringBootTest(
-    properties = ["spring.profiles.аctive=15"]
+    properties = ["spring.profiles.аctive=test"]
 )
 class ServiceTest {
 
